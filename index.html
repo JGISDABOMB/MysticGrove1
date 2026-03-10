@@ -38,37 +38,7 @@ body {
   font-family: 'Jost', sans-serif;
   font-weight: 300;
   overflow-x: hidden;
-  cursor: none;
 }
-
-/* Custom cursor */
-.cursor {
-  position: fixed;
-  width: 8px; height: 8px;
-  background: var(--ink);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9999;
-  transform: translate(-50%, -50%);
-  transition: transform .1s, width .25s, height .25s, background .25s;
-}
-.cursor-ring {
-  position: fixed;
-  width: 36px; height: 36px;
-  border: 1px solid var(--ink);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9998;
-  transform: translate(-50%, -50%);
-  transition: transform .12s ease, width .3s, height .3s, border-color .3s;
-  opacity: .4;
-}
-body:has(button:hover) .cursor,
-body:has(a:hover) .cursor { width: 0; height: 0; }
-body:has(button:hover) .cursor-ring,
-body:has(a:hover) .cursor-ring { width: 60px; height: 60px; border-color: var(--gold); opacity: .6; }
-
-a, button { cursor: none; }
 
 /* ─────────────────────────────────────
    NAV
@@ -750,8 +720,7 @@ footer {
 </head>
 <body>
 
-<div class="cursor" id="cursor"></div>
-<div class="cursor-ring" id="cursorRing"></div>
+
 
 <!-- ══════ NAV ══════ -->
 <nav class="nav">
@@ -966,16 +935,6 @@ footer {
 <div class="toast" id="toast"></div>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-/* ──── CURSOR ──── */
-const cur = document.getElementById('cursor');
-const ring = document.getElementById('cursorRing');
-document.addEventListener('mousemove', e => {
-  cur.style.left = e.clientX + 'px';
-  cur.style.top  = e.clientY + 'px';
-  ring.style.left = e.clientX + 'px';
-  ring.style.top  = e.clientY + 'px';
-});
-
 /* ──── DATA ──── */
 const artists = [
   {id:'a1',name:'Miriam Goldfarb',loc:'Jerusalem',bio:'Illuminated manuscripts fused with Jungian symbolism. Her Sefirot diagrams blend Kabbalistic structure with depth-psychological mapping.',trad:'Kabbalah · Illumination',avatar:'🕊'},
